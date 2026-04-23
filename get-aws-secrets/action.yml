@@ -17,11 +17,11 @@ runs:
   using: "composite"
   steps:
     - name: configure aws credentials
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@v6
       with:
         role-to-assume: ${{ inputs.role-to-assume }}
         aws-region: ${{ inputs.region }}
     - name: get secrets
-      uses: aws-actions/aws-secretsmanager-get-secrets@v2
+      uses: aws-actions/aws-secretsmanager-get-secrets@v3
       with:
         secret-ids: ${{ inputs.secret-ids }}
