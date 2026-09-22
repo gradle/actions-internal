@@ -1,0 +1,26 @@
+name: 'warp-connect'
+description: 'Connect to the Gradle internal network from a Github Action'
+author: 'Security Team'
+
+# Define your inputs here.
+inputs:
+  organization:
+    description: 'Cloudflare organization name'
+    required: false
+    default: 'gradle'
+  client_id:
+    description: 'Cloudflare WARP client ID'
+    required: true
+  client_secret:
+    description: 'Cloudflare WARP client secret'
+    required: true
+
+# Define your outputs here.
+outputs:
+  status:
+    description: 'Connection status result'
+
+runs:
+  using: node24
+  main: dist/index.js
+  post: dist/index.js
